@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --bg-app: #F8F6F0;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F4EFE6;
+  --border-card: #E4DDD3;
+  --text-main: #292524;
+  --text-muted: #78716C;
+  --text-inverted: #FFFFFF;
+  --primary: #78350F;
+  --primary-hover: #92400E;
+  --primary-text: #FFFFFF;
+  --primary-light: rgba(120, 53, 15, 0.1);
+  --accent: #B45309;
+  --accent-glow: rgba(180, 83, 9, 0.25);
+  --status-green: #15803D;
+  --status-yellow: #B45309;
+  --status-red: #B91C1C;
+  --border-radius: 1rem;
+  --lyra-glow: #D97706;
+  --lyra-wand: #B45309;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-card);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Lyra Fairy animations */
+@keyframes wandGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px var(--lyra-glow)) drop-shadow(0 0 12px var(--lyra-wand));
+    transform: rotate(0deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 14px var(--lyra-glow)) drop-shadow(0 0 24px var(--lyra-wand));
+    transform: rotate(6deg) scale(1.04);
+  }
+}
+
+@keyframes fairyFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+@keyframes wingFlap {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleX(0.7) scaleY(0.95);
+    opacity: 0.6;
+  }
+}
+
+@keyframes sparkle {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+.animate-wand {
+  animation: wandGlow 2.5s infinite ease-in-out;
+}
+
+.animate-fairy-float {
+  animation: fairyFloat 4s infinite ease-in-out;
+}
+
+.animate-wing-left {
+  animation: wingFlap 0.4s infinite ease-in-out alternate;
+  transform-origin: right center;
+}
+
+.animate-wing-right {
+  animation: wingFlap 0.4s infinite ease-in-out alternate-reverse;
+  transform-origin: left center;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s infinite ease-in-out;
+}

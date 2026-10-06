@@ -1,0 +1,11 @@
+{
+  "name": "WHO AM I?",
+  "description": "Unified AI-powered personal operating system for goals, dreams, learning, planning, documents, question practice, research, progress tracking and AI assistance with LYRA.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
